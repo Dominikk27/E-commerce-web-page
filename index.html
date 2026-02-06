@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="Styles/global.css">
+    <link rel="stylesheet" href="Styles/jquery.fallingsnow.css">
+	<link rel="stylesheet" href="Styles/jquery.fallingsnow.css">
+    <script src="https://kit.fontawesome.com/aeaa451863.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>R.M. Technik | Predaj záhradnej a lesnej techniky</title>
+    <link rel="icon" type="image/x-icon" href="./assets/logo.png">
+</head>
+<body class="bg-[var(--color-background)]">
+    <div id="NavBar" class="relative w-full pb-10 xl:max-w-[1920px] mx-auto ">
+        <!-- HEADER + NAV -->
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 px-[var(--horizontal-gap)] py-[8rem] gap-4 sm:px-[16px] md:px-[4rem] lg:px-[8rem] xl:px-[16rem] justify-center  max-w-[1600px] mx-auto">
+            <!-- DESKTOP HEADER NAV BAR -->
+            <div class="hidden absolute top-0 w-full lg:flex flex-col gap-5 p-4">
+                <!-- HEADER INFO BAR -->
+                <div class="flex flex-row justify-between items-center">
+                    <img src="./assets/logo.png" alt="" class="logo max-h-[5rem]">
+                    <div class="flex flex-row gap-4">
+                        <!-- INFO BAR BUSINESS HOURS -->
+                        <div class="flex flex-row justify-center items-center gap-2 bg-[rgba(var(--color-filled-card-rgba),0.4)] px-4 py-4 rounded-[1rem]">
+                            <div class="icon">
+                                <i class="fa-solid fa-clock text-[var(--color-accent)] text-[1.7rem]"></i>
+                            </div>
+                            <div class="flex flex-col justify-center items-center">
+                                <h1 class="h1Text justify-center items-center  text-white px-[0.5rem]">Otváracie hodiny</h1>
+                                <h2 class="h2text text-white">Po-Pia: 8:00-16:30</h2>
+                            </div>
+                        </div>
+                        <!-- INFO BAR PHONE NUMBER -->
+                        <div class="flex flex-row justify-center items-center gap-2 bg-[rgba(var(--color-filled-card-rgba),0.4)] px-4 py-4 rounded-[1rem]">
+                            <div class="icon">
+                                <i class="fa-solid fa-phone text-[var(--color-accent)] text-[1.7rem]"></i>
+                            </div>
+                            <div class="flex flex-col justify-center items-center">
+                                <h1 class="h1Text justify-center items-center  text-white px-[0.5rem]">Telefón</h1>
+                                <h2 class="h2text text-white">+421 918 523 756</h2>
+                            </div>
+                        </div>
+                        <!-- INFO BAR EMAIL -->
+                        <div class="flex flex-row justify-center items-center gap-2 bg-[rgba(var(--color-filled-card-rgba),0.4)] px-4 py-4 rounded-[1rem]">
+                            <div class="icon">
+                                <i class="fa-solid fa-at text-[var(--color-accent)] text-[1.7rem]"></i>
+                            </div>
+                            <div class="flex flex-col justify-center items-center">
+                                <h1 class="h1Text justify-center items-center  text-white px-[0.5rem]">E-mail</h1>
+                                <h2 class="h2text text-white">rmtechnikmyjava@gmail.com</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- NAVIGATION -->
+                <div class="flex flex-row gap-4 w-full bg-[rgba(var(--color-accent-rgb),0.4)] py-2 px-2 rounded-[0.5rem]">
+                    <a href="#domov" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        Domov
+                    </a>
+                    <a href="#o-nas" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        O nás
+                    </a>
+                    <a href="#partneri" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        Partneri
+                    </a>
+                    <a href="https://profitrend.elnot.com/" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        Servis
+                    </a>
+                    <a href="#kontakt" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        Kontakt
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- MOBILE HAMBURGER BUTTON -->
+        <div class="w-full flex flex-row md:hidden justify-between">
+            <div id="menuBtn"
+                class="fixed z-[9999] top-0 left-0 w-[var(--menu-btn-size)] h-[var(--menu-btn-size)]
+                        bg-[var(--color-accent)] rounded-[var(--menu-btn-radius)]
+                        flex justify-center items-center m-[var(--menu-btn-padding)] lg:hidden">
+                <i id="menuIcon" class="fa-solid fa-bars fa-xl"></i>
+            </div>
+            <img src="./assets/logo.png" alt="" class="fixed z-[9999] top-0 right-0 max-h-[5rem] m-[var(--menu-btn-padding)]">
+        </div>
+        <!-- MOBILE MENU OVERLAY -->
+        <div id="mobileMenu"
+            class="fixed inset-0 bg-[rgba(var(--color-filled-card-rgba),0.85)]
+                    backdrop-blur-md flex flex-col justify-center items-center gap-8
+                    z-[99] opacity-0 pointer-events-none transition-all duration-300 lg:hidden">
+            
+            <a href="#domov" class="text-white text-2xl font-semibold">Domov</a>
+            <a href="#o-nas" class="text-white text-2xl font-semibold">O nás</a>
+            <a href="#partneri" class="text-white text-2xl font-semibold">Partneri</a>
+            <a href="https://profitrend.elnot.com/" class="text-white text-2xl font-semibold">Servis</a>
+            <a href="#kontakt" class="text-white text-2xl font-semibold">Kontakt</a>
+        </div>
+
+
+        <img src="./assets/HERO_large.svg" alt="" class="absolute top-0 right-0 z-0 opacity-90 xl:mx-auto w-auto max-h-[50vh] sm:max-h-[80vh] md:max-h-[85vh] lg:max-h-[100vh] object-contain mx-auto">
+        <div class="relative w-full flex-1 flex flex-col gap-10 sm:px-[16px] md:px-[4rem] justify-center max-w-[1600px] mx-auto mt-[12rem] xl:mt-[5rem] sm:mt-[30rem]">
+            <div class="order-2 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 lg:order-2 xl:order-1">
+                <!-- HERO TEXT-->
+                <div class="col-span-1 sm:col-span-4 md:col-span-7 lg:col-span-8 flex flex-col gap-4 sm:order-1 sm:justify-center px-4 mt-5">
+                    <h1 class="h1Text text-white text-[1.6rem] md:text-[1.75rem] md:text-[2.1rem] lg:text-[2.8rem]">
+                        Váš spoľahlivý <span class="text-[var(--color-accent)]">partner</span>
+                        pri starostlivosti o vašú <span class="text-[var(--color-accent)]">záhradu</span>!
+                    </h1>
+
+                    <p class="pText text-white text-[1.1rem]">
+                        Objavte širokú ponuku moderných záhradných strojov, náradia a príslušenstva, ktoré vám uľahčia každodennú prácu v záhrade. Či už potrebujete kosačky, krovinorezy, záhradné vozíky alebo profesionálne náradie, u nás nájdete všetko na jednom mieste. Naša spoločnosť sa zameriava na spoľahlivosť, kvalitu a individuálny prístup ku každému zákazníkovi. Pomôžeme vám zrealizovať vašu víziu perfektnej záhrady, ušetriť čas a získať spokojnosť z každého okamihu stráveného medzi rastlinami. S nami bude starostlivosť o vašu záhradu jednoduchá, efektívna a radostná!
+                    </p>
+
+                    <a href="#o-nas" class="mt-2 w-[10rem] inline-flex items-center justify-center gap-3 bg-[var(--color-accent)] rounded-full px-2 py-3">
+                        <div class="w-[var(--button-circle-icon-size)] h-[var(--button-circle-icon-size)] bg-white rounded-full flex justify-center items-center">
+                            <i class="fa-solid fa-arrow-down rotate-[215deg]"></i>
+                        </div>
+                        <p class="capsuleButtonText text-black text-center">Zobraziť služby</p>
+                    </a>
+
+                </div>
+            </div>
+        
+            <div class="order-1 flex flex-row gap-4 justify-center sm:justify-start lg:order-1 lg:justify-start xl:order-2">
+                <div class=" heroCard w-[var(--smallCard-size)] h-[var(--smallCard-size)] 
+                sm:w-[12rem] sm:h-[12rem] lg:w-[12rem] lg:h-[12rem] bg-[var(--color-accent)] rounded-[var(--smallCard-radius)] flex flex-col justify-between py-5 items-center">
+                    <h2 class="h2text text-[1rem] text-black sm:text-[1.6rem] leading-none">Opravili sme</h2>
+                    <h1 class="h1Text text-[1.6rem] sm:text-[3.5rem] justify-center items-center text-[var(--graphite)] px-[0.5rem] leading-none">2000+</h1>
+                    <h2 class="h2text text-[1rem] text-black sm:text-[1.6rem] leading-none">Strojov</h2>
+                </div>
+                <div class=" heroCard w-[var(--smallCard-size)] h-[var(--smallCard-size)] 
+                sm:w-[12rem] sm:h-[12rem] lg:w-[12rem] lg:h-[12rem] bg-[var(--color-accent)] rounded-[var(--smallCard-radius)] flex flex-col justify-between py-5 items-center">
+                    <h2 class="h2text text-[1rem] text-black sm:text-[1.6rem] leading-none">Overených</h2>
+                    <h1 class="h1Text text-[1.6rem] sm:text-[3.5rem] justify-center items-center text-[var(--graphite)] px-[0.5rem] leading-none">6</h1>
+                    <h2 class="h2text text-[1rem] text-black sm:text-[1.6rem] leading-none">Značiek</h2>
+                </div>
+                <div class=" heroCard w-[var(--smallCard-size)] h-[var(--smallCard-size)] 
+                sm:w-[12rem] sm:h-[12rem] lg:w-[12rem] lg:h-[12rem] bg-[var(--color-accent)] rounded-[var(--smallCard-radius)] flex flex-col justify-between py-5 items-center">
+                    <h2 class="h2text text-[1rem] text-black sm:text-[1.6rem] leading-none">Predali sme</h2>
+                    <h1 class="h1Text text-[1.6rem] sm:text-[3.5rem] justify-center items-center text-[var(--graphite)] px-[0.5rem] leading-none">3500+</h1>
+                    <h2 class="h2text text-[1rem] text-black sm:text-[1.6rem] leading-none">Strojov</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/mobileMenu.js"></script>
+
+    <div id="o-nas"  class="relative w-full h-auto flex justify-center items-center bg-[var(--color-secondary-background)]">
+            <!--<img src="./assets/topWaveLarge.svg" alt="" class="absolute top-0 left-0 w-full max-h-[10rem] object-contain">-->
+            <div class=" grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 px-[var(--horizontal-gap)] py-[8rem] gap-4 sm:px-[16px] md:px-[4rem] lg:px-[8rem] xl:px-[16rem] justify-center  max-w-[1600px] mx-auto">
+                <img src="./assets/man.jpg" alt="man in garden" class="col-span-1 md:col-span-4 lg:col-span-6 rounded-[var(--aboutImg-radius)] w-full">
+                <div class="flex flex-col w-full gap-[0.5rem] md:col-span-4 lg:col-span-6">
+                    <h1 class="h1Text text-white text-[1.6rem] md:text-[1.75rem] md:text-[2.1rem] lg:text-[2.8rem]">
+                        Záhradná technika a <span class="text-[var(--color-accent)]">servis</span>,
+                        ktorému môžete <span class="text-[var(--color-accent)]">dôverovať</span>!
+                    </h1>
+                    <p class="pText text-white text-[1.1rem]">
+                        Pomáhame vám udržiavať záhradu v perfektnom stave bez zbytočných starostí. 
+                        Predávame kvalitnú techniku a poskytujeme rýchly servis, aby všetko fungovalo tak, ako má.<br />
+                        Sme tu pre vás, keď potrebujete poradiť, opraviť alebo vybrať správne vybavenie.
+                    </p>
+                </div>
+                <div class="col-span-1 md:col-span-8 grid grid-cols-1 md:grid-cols-8 gap-[1rem] lg:col-span-12 lg:grid-cols-12 aboutGrid mt-5">
+                    <div class="col-span-2 md:col-span-4 lg:col-span-4 xl:col-span-3 p-[0.5rem] bg-[var(--color-filled-card)] rounded-[1.6rem] flex flex-col justify-start items-center gap-[0.25rem] col-span-550">
+                        <div class="w-[3rem] h-[3rem] flex justify-center items-center bg-[var(--color-accent)] rounded-full">
+                            <p class="fa-solid fa-seedling text-[2rem]"></p>
+                        </div>
+                        <h2 class="h2text text-[var(--color-accent)] text-[1rem]">Naša vízia</h2>
+                        <p class="text-white text-[0.75rem]">Chceme, aby starostlivosť o záhradu bola pre každého jednoduchá, spoľahlivá a bez starostí.
+                            Prinášame kvalitnú techniku, odborné služby a podporu, na ktorú sa môžete vždy spoľahnúť.
+                            Našou víziou je byť miestom, kde zákazník nájde všetko, od výberu správneho stroja až po dlhodobý servis.</p>
+                    </div>
+
+                    <div class="col-span-2 md:col-span-4 lg:col-span-4 xl:col-span-3 p-[0.5rem] border-2 border-[var(--color-border)] rounded-[1.6rem] flex flex-col justify-start items-center gap-[0.25rem] aboutSectionCardCustom col-span-550">
+                        <div class="w-[3rem] h-[3rem] flex justify-center items-center bg-[var(--color-accent)] rounded-full">
+                            <p class="fa-solid fa-user-tie text-[2rem]"></p>
+                        </div>
+                        <h2 class="h2text text-[var(--color-accent)] text-[1rem]">Poradenstvo</h2>
+                        <p class="text-white text-[0.75rem]">Chceme, aby ste si vybrali techniku, ktorá vám bude skutočne vyhovovať.
+                            Pomôžeme vám zorientovať sa v možnostiach a odporučíme riešenia podľa vašich potrieb.
+                            Naším poslaním je, aby ste vždy odchádzali s jasnou odpoveďou a správnou voľbou.</p>
+                    </div>
+
+                    <div class="col-span-2 md:col-span-4 lg:col-span-4 xl:col-span-3 p-[0.5rem] border-2 border-[var(--color-border)] rounded-[1.6rem] flex flex-col justify-start items-center gap-[0.25rem] col-span-550">
+                        <div class="w-[3rem] h-[3rem] flex justify-center items-center bg-[var(--color-accent)] rounded-full">
+                            <p class="fa-solid fa-store text-[2rem]"></p>
+                        </div>
+                        <h2 class="h2text text-[var(--color-accent)] text-[1rem]">Predaj techniky</h2>
+                        <p class="text-white text-[0.75rem]">Chceme ponúkať techniku, ktorá uľahčí prácu a zároveň vydrží dlhé roky.
+                            Vyberáme iba overené stroje, na ktoré sa môžete spoľahnúť doma aj na väčších pozemkoch.
+                            Naším cieľom je priniesť vám produkty, ktoré kombinujú kvalitu, výkon a praktickosť.</p>
+                    </div>
+
+                    <div class="col-span-2 md:col-span-4 lg:col-span-4 xl:col-span-3 p-[0.5rem] border-2 border-[var(--color-border)] rounded-[1.6rem] flex flex-col justify-start items-center gap-[0.25rem] col-span-550">
+                        <div class="w-[3rem] h-[3rem] flex justify-center items-center bg-[var(--color-accent)] rounded-full">
+                            <p class="fa-solid fa-screwdriver-wrench text-[2rem]"></p>
+                        </div>
+                        <h2 class="h2text text-[var(--color-accent)] text-[1rem]">Servis</h2>
+                        <p class="text-white text-[0.75rem]">Chceme, aby vaša technika fungovala čo najdlhšie bez zbytočných problémov.
+                            Ponúkame rýchly, profesionálny a presný servis, ktorý sa postará o diagnostiku aj opravy.
+                            Naším cieľom je zabezpečiť, aby ste sa mohli na svoje stroje vždy spoľahnúť.</p>
+                    </div>
+                </div>
+            </div>
+            <!--<img src="./assets/bottomWaveLarge.svg" alt="" class="absolute bottom-0 left-0 w-full max-h-[10rem] object-contain">-->
+        </div>
+
+        <!-- COMMENT SECTION -->
+        <div id="reviews"  class="flex flex-col w-full gap-5 justify-center items-center py-8 max-w-[1600px] sm:px-[16px] md:px-[4rem] lg:px-[8rem] xl:px-[16rem] justify-center  max-w-[1600px] mx-auto items-stretch">
+            <div class="flex justify-between items-center w-full">
+                <h1 class="h1Text text-white leading-tight">Čo o nás hovoria<br /> 
+                naši <span class="text-[var(--color-accent)]">zákaznici</span>?</h1>
+                <a href="https://www.google.com/search?si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EweIjbZbsDQVq9IhJxut39PC3p9KPrK9zn1q-ZsBwDMOIPCHi9z4qWIv7VFpqlN9XH2QM5Uv0FE1Q7qQGVs1c9KYYpWNuoksncHU06y3PWkGV0-42vPK1DfML6v-z76TstXhLNH2dfVlRbJPbQceFA6K3YUG&q=Richard+Majt%C3%A1n+-+R.M.Technik+%28Z%C3%A1hradn%C3%A1+Technika%29+Reviews" class="mt-6 w-[10rem] inline-flex items-center justify-center gap-3 bg-[var(--color-accent)] rounded-full px-2 py-3">
+                    <div class="w-[var(--button-circle-icon-size)] h-[var(--button-circle-icon-size)] bg-white rounded-full flex justify-center items-center">
+                        <i class="fa-solid fa-arrow-down rotate-[215deg]"></i>
+                    </div>
+                    <p class="capsuleButtonText text-black text-center">Zobraziť služby</p>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-5 py-[2rem] gap-4 items-stretch">
+                
+                <div class="col-span-1 sm:col-span-4 lg:col-span-4 bg-[var(--color-filled-card)] rounded-[1.6rem] flex flex-col py-3 px-5 h-full">
+                    <p class="text-[0.9rem] text-white py-5">
+                        Najväčší a pokiaľ viem tak jediný predajca značky STIHL v Myjave,  ktorý poskytuje  servis, opravy a predaj súčiastok. Dobrý prístup k zákazníkovi, vela krovinorezov, kosačiek, reťazových píl a nahradných dielov skladom.
+                    </p>
+                    <div class="flex gap-2 items-center mt-auto">
+                        <img src="https://lh3.googleusercontent.com/a-/ALV-UjXSDbR53VSyd9-Z_sVqiLdBNSskJ0rpkfb4eSJco7jWvscbhGk=w36-h36-p-rp-mo-ba6-br100" alt="" class="rounded-full aspect-[55/55] ">
+                        <div class="flex justify-between w-full items-center">
+                            <div class="flex flex-col gap-0 ">
+                                <h1 class="h1Text leading-none text-[var(--color-accent)]">Štefan P.</h1>
+                                <p class="text-[0.9rem] text-[var(--color-accent)]">6 rokov dozadu</p>
+                            </div>
+                            <img src="./assets/column.svg" alt="" class="h-[1.9375rem] w-[2.875rem]">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1 sm:col-span-4 lg:col-span-4 bg-[var(--color-filled-card)] rounded-[1.6rem] flex flex-col py-3 px-5 h-full">
+                <p class="text-[0.9rem] text-white py-5">
+                    Servis záhradnej techniky.
+                </p>
+                <div class="flex gap-2 items-center mt-auto">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocKULp3AAgFK3g8Em9GjfeItsp73kRVmyD-lGEHn-WFd5ZgIWA=s30-c-rp-mo-ba6-br100" alt="" class="rounded-full aspect-[55/55] ">
+                    <div class="flex justify-between w-full items-center">
+                        <div class="flex flex-col gap-0 ">
+                            <h1 class="h1Text leading-none text-[var(--color-accent)]">Martin S.</h1>
+                            <p class="text-[0.9rem] text-[var(--color-accent)]">pred 8 mesiacmi</p>
+                        </div>
+                        <img src="./assets/column.svg" alt="" class="h-[1.9375rem] w-[2.875rem]">
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-span-1 sm:col-span-4 lg:col-span-4 bg-[var(--color-filled-card)] rounded-[1.6rem] flex flex-col py-3 px-5 h-full">
+                    <p class="text-[0.9rem] text-white py-5">
+                        Ok
+                    </p>
+                    <div class="flex gap-2 items-center mt-auto">
+                        <img src="https://lh3.googleusercontent.com/a/ACg8ocIVXVjXUYGa7JvFmxazUy8enBGYYpwz99HlD6_Irvyj9-Np8Q=s30-c-rp-mo-ba3-br100" alt="" class="rounded-full aspect-[55/55] ">
+                        <div class="flex justify-between w-full items-center">
+                            <div class="flex flex-col gap-0 ">
+                                <h1 class="h1Text leading-none text-[var(--color-accent)]">Dušan Ž.</h1>
+                                <p class="text-[0.9rem] text-[var(--color-accent)]">6 rokov dozadu</p>
+                            </div>
+                            <img src="./assets/column.svg" alt="" class="h-[1.9375rem] w-[2.875rem]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-1 sm:col-span-4 lg:col-span-4 bg-[var(--color-filled-card)] rounded-[1.6rem] flex flex-col py-3 px-5 h-full">
+                    <p class="text-[0.9rem] text-white py-5">
+                        Veľmi edukovaní zamestnanci s príjemným správaním..
+                    </p>
+                    <div class="flex gap-2 items-center mt-auto">
+                        <img src="https://lh3.googleusercontent.com/a-/ALV-UjXSDbR53VSyd9-Z_sVqiLdBNSskJ0rpkfb4eSJco7jWvscbhGk=w36-h36-p-rp-mo-ba6-br100" alt="" class="rounded-full aspect-[55/55] ">
+                        <div class="flex justify-between w-full items-center">
+                            <div class="flex flex-col gap-0 ">
+                                <h1 class="h1Text leading-none text-[var(--color-accent)]">Ladislav M.</h1>
+                                <p class="text-[0.9rem] text-[var(--color-accent)]">pred 1 rokom</p>
+                            </div>
+                            <img src="./assets/column.svg" alt="" class="h-[1.9375rem] w-[2.875rem]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-1 sm:col-span-4 lg:col-span-4 bg-[var(--color-filled-card)] rounded-[1.6rem] flex flex-col py-3 px-5 h-full">
+                    <p class="text-[0.9rem] text-white py-5">
+                        Sú perfektní k zákazníkom. Vedia poradiť a pomôcť pri výbere tovaru. Opravy robia okamžite k spokojnosti zákazníkov.
+                    </p>
+                    <div class="flex gap-2 items-center mt-auto">
+                        <img src="https://lh3.googleusercontent.com/a/ACg8ocIceb6grG2XQkX7C5wwTpMYCS8nL3xyckHSor_h3hp5qhQhMg=s30-c-rp-mo-ba3-br100" alt="" class="rounded-full aspect-[55/55] ">
+                        <div class="flex justify-between w-full items-center">
+                            <div class="flex flex-col gap-0 ">
+                                <h1 class="h1Text leading-none text-[var(--color-accent)]">Július M.</h1>
+                                <p class="text-[0.9rem] text-[var(--color-accent)]">4 roky dozadu</p>
+                            </div>
+                            <img src="./assets/column.svg" alt="" class="h-[1.9375rem] w-[2.875rem]">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-span-1 sm:col-span-4 lg:col-span-4 bg-[var(--color-filled-card)] rounded-[1.6rem] flex flex-col py-3 px-5 h-full">
+                    <p class="text-[0.9rem] text-white py-5">
+                        Perfektná rýchla obsluha a servis!!
+                    </p>
+                    <div class="flex gap-2 items-center mt-auto">
+                        <img src="https://lh3.googleusercontent.com/a-/ALV-UjV9EX_xoAogi_b1OVyzurB7ALmlnLUlmO-hm1IPae-1LZ5njuQc=s30-c-rp-mo-ba2-br100" alt="" class="rounded-full aspect-[55/55] ">
+                        <div class="flex justify-between w-full items-center">
+                            <div class="flex flex-col gap-0 ">
+                                <h1 class="h1Text leading-none text-[var(--color-accent)]">Miroslav H.</h1>
+                                <p class="text-[0.9rem] text-[var(--color-accent)]">pred 4 rokmi</p>
+                            </div>
+                            <img src="./assets/column.svg" alt="" class="h-[1.9375rem] w-[2.875rem]">
+                        </div>
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS SECTION -->
+        <div id="statistky" class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 px-[var(--horizontal-gap)] py-[8rem] gap-4 sm:px-[16px] md:px-[4rem] lg:px-[8rem] xl:px-[16rem] justify-center  max-w-[1600px] mx-auto">
+            <div class="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-4 rounded-[var(--aboutImg-radius)] bg-[var(--color-secondary-background)] px-4 py-5 lg:px-2 lg:py-[3rem] gap-3 flex flex-col justify-center items-center">
+                <h1 class="h1Text text-[5.12rem] leading-none text-[var(--color-accent)] text-center">
+                    10+
+                </h1>
+                <h2 class="h2text leading-none text-[var(--color-accent)] text-[2.25rem] lg:text-[1.5rem] text-center">
+                    Rokov skúseností
+                </h2>
+            </div>
+            <div class="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-4 rounded-[var(--aboutImg-radius)] bg-[var(--color-secondary-background)] px-4 py-5 lg:px-2 lg:py-[3rem] gap-3 flex flex-col justify-center items-center">
+                <h1 class="h1Text text-[5.12rem] leading-none text-[var(--color-accent)] text-center">
+                    100+
+                </h1>
+                <h2 class="h2text leading-none text-[var(--color-accent)] text-[2.25rem] lg:text-[1.5rem] text-center ">
+                    Predaných produktov
+                </h2>
+            </div>
+            <div class="col-span-1 sm:col-span-4 md:col-span-4 lg:col-span-4 md:col-start-3 rounded-[var(--aboutImg-radius)] bg-[var(--color-secondary-background)] px-4 py-5 lg:px-2 lg:py-[3rem]  gap-3 flex flex-col justify-center items-center">
+                <div class="flex flex-row justify-center items-center gap-2">
+                    <h1 class="h1Text text-[5.12rem] leading-none text-[var(--color-accent)] text-center">
+                        4.6
+                    </h1>
+                    <i class="fa-solid fa-star text-[var(--color-accent)] text-[2.7rem]"></i>
+                </div>
+                <h2 class="h2text leading-none text-[var(--color-accent)] text-[2.25rem] lg:text-[1.5rem] text-center ">
+                    Hodnotenie zákazníkov
+                </h2>
+            </div>
+        </div>
+
+        <!-- PARTNERS SECTION -->
+        <div id="partneri" class="relative flex flex-col w-full h-auto justify-center items-center bg-[var(--color-secondary-background)] py-4">
+            <h1 class="fontAurore text-[var(--color-accent)] text-[2rem] md:text-[1.75rem] md:text-[2.1rem] lg:text-[2.8rem]">Sme overení najlepšími</h1>
+            <p class="fontInter partnerText uppercase text-[0.875rem] text-[400]">partneri</p>
+            <div class="wrapper my-8">
+                <img src="./assets/partners/stihl_logo.png" alt="STIHL" class="partnerLogo partner1">
+                <img src="./assets/partners/wolfgarten_logo.png" alt="WOLF GARTEN" class=" partnerLogo partner2">
+                <img src="./assets/partners/vari_logo.jpg" alt="VARI" class="partnerLogo partner3">
+                <img src="./assets/partners/stiga_logo.png" alt="STIGA" class="partnerLogo partner4">
+                <img src="./assets/partners/Fiskars_logo.png" alt="FISKARS" class="partnerLogo partner5">
+            </div>
+        </div>
+
+
+        <!-- CONTACT SECTION-->
+         <div id="kontakt" class="relative flex flex-col">
+            <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12 px-[var(--horizontal-gap)] py-5 gap-4 sm:px-[16px] md:px-[4rem] lg:px-[8rem] xl:px-[16rem] justify-center  max-w-[1600px] mx-auto">
+                <!-- HOURS CONTAINER -->
+                <div class="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-6 flex flex-col z-10 mx-auto gap-5 justify-center">
+                    <!-- HOURS -->
+                    <h1 class="sectionName h1Text text-white leading-none">Otváracie <span class="text-[var(--color-accent)]">hodiny</span></h1>
+                    <div class="grid grid-cols-2 items-center justify-center gap-1">
+                        <h2 class="h1Text text-end ">Pondelok:</h2><h1 class="h1Text text-[var(--color-accent)]">8:00 - 16:00</h1>
+                        <h2 class="h1Text text-end ">Útorok:</h2><h1 class="h1Text text-[var(--color-accent)]">8:00 - 16:00</h1>
+                        <h2 class="h1Text text-end ">Streda:</h2><h1 class="h1Text text-[var(--color-accent)]">8:00 - 16:00</h1>
+                        <h2 class="h1Text text-end ">Štvrtok:</h2><h1 class="h1Text text-[var(--color-accent)]">8:00 - 16:00</h1>
+                        <h2 class="h1Text text-end ">Piatok:</h2><h1 class="h1Text text-[var(--color-accent)]">8:00 - 16:00</h1>
+                        <h2 class="h1Text text-end ">Sobota:</h2><h1 class="h1Text text-[var(--color-accent)]">8:00 - 11:30</h1>
+                        <h2 class="h1Text text-end ">Nedeľa:</h2><h1 class="h1Text text-[var(--color-accent)]">Zatvorené</h1>
+                    </div>
+                    <div class="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-6 flex flex-col sm:flex-row justify-center items-center my-5 bg-[rgba(var(--color-filled-card-rgba),0.4)] px-4 py-4 rounded-[1rem] gap-2 whitespace-nowrap"><i class="fa-solid fa-utensils text-[1.5rem] text-[var(--color-accent)]"></i><h1 class="h1Text text-start md:text-end">Obedová prestávka: <span class="h1Text text-[var(--color-accent)]"> 12:00 - 13:00</span></h1></div>
+                </div>
+                <div class="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-6 flex mx-auto my-auto w-full max-w-[400px] justify-center pt-10">
+                    <iframe class="w-full h-auto aspect-[1/1]" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.3898499088928!2d17.55944457685717!3d48.75184180819833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47134f79d74497bb%3A0xd2f9b60dd6713190!2sRichard%20Majt%C3%A1n%20-%20R.M.Technik%20(Z%C3%A1hradn%C3%A1%20Technika)!5e1!3m2!1sen!2ssk!4v1765158745363!5m2!1sen!2ssk" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-span-1 sm:col-span-2 sm:col-start-3 md:col-span-4 md:col-start-5 lg:col-span-6 lg:col-start-7 flex flex-col my-5 gap-2 justify-center">
+                    <div class="flex gap-3 mb-5"><i class="fa-solid fa-location-dot text-[var(--color-accent)] text-[1.6rem] justify-center items-center"></i><h1 class="h1Text text-[1.2rem] flex gap-2">Moravská 619, <span class="text-[var(--color-accent)]">907 01 Myjava</span></h1></div>
+                    <a href="tel:+421918523756" class="flex gap-3"><i class="fa-solid fa-phone text-[var(--color-accent)] text-[1.6rem] justify-center items-center"></i><h1 class="h1Text text-[1.2rem]">0918 523 756</h1></a>
+                    <a href="tel:034/6214400" class="flex gap-3"><i class="fa-solid fa-phone text-[var(--color-accent)] text-[1.6rem] justify-center items-center"></i><h1 class="h1Text text-[1.2rem]">034/621 44 00</h1></a>
+                    <a href="mailto:rmtechnikmyjava@gmail.com" class="flex gap-3"><i class="fa-solid fa-at text-[var(--color-accent)] text-[1.6rem] justify-center items-center"></i><h1 class="h1Text text-[1.2rem]">rmtechnikmyjava@gmail.com</h1></a>
+                    <div class="flex gap-3"><i class="fa-solid fa-building text-[var(--color-accent)] text-[1.6rem] justify-center items-center"></i><h1 class="h1Text text-[1.2rem]">IČO: <span class="text-[var(--color-accent)]">53498615</span></h1></div>
+                    <div class="flex flex-row my-5 justify-center items-center gap-5">
+                        <a href="https://www.instagram.com/r.m.technik/" target="_blank" class=""><img src="./assets/socials/facebook.png" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/r.m.technik/" target="_blank" class=""><img src="./assets/socials/instagram.png" alt="Instagram"></a>
+                        <a href="#" target="_blank" class=""><img src="./assets/socials/youtube.png" alt="YouTube"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="snow-wrap z-[-10]">
+			<div id="snow"></div>
+		</div>
+    </body>
+</html>

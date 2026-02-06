@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=La+Belle+Aurore&display=swap');
+
+:root {
+  --color-background: #19210C;
+  --color-secondary-background: #111607;
+  --color-accent: #AFDB58;
+  --color-accent-rgb: 0,219,88;
+
+  --color-border: #282D1E;  
+  --color-filled-card: #3E4D1E;
+  --color-filled-card-rgba: 62, 77, 30;
+
+  --graphite: #2B2B2B;
+
+  --horizontal-gap: 1rem;
+
+  --smallCard-size: 6.2rem;
+  --smallCard-radius: 0.625rem;
+  --smallCard-Large-Value-Font-Size: 1.5rem;
+  --smallCard-Large-Value-Font-Weight: 800;
+
+  --smallCard-size_larger: 10rem;
+
+  --small-h1-font-size: 1rem;
+  --small-h1-font-weight: 800;
+  --default-font-family: 'Inter', sans-serif;
+
+  --exclusive-font-family: 'La Belle Aurore', cursive;
+  --exclusive-small-h1-font-weight: 400;
+
+  --medium-h1-font-size: 1.75rem;
+
+
+  --small-p-font-size: 0.625rem;
+  --small-p-font-weight: 200;
+
+  --capsule-button-content-gap: 0.5rem;
+  --button-circle-icon-size: 1.4rem;
+  --button-circle-icon-radius: 0.75rem;
+
+  --capsule-button-radius: 1rem;
+  --capsule-button-text-size: 0.6875rem;
+  --capsule-button-text-weight: 500;
+  --capsule-button-padding-x: 0.5rem;
+  --capsule-button-padding-y: 0.25rem;
+
+
+  --menu-btn-size: 3.2rem;
+  --menu-btn-padding: 1.10rem;
+  --menu-btn-radius: 0.8rem;
+
+
+  --heroText-sm-width: 4.5rem;
+
+
+  --aboutImg-radius: 1.5rem;
+
+}
+
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.scroll-freeze{
+    overflow: hidden; 
+}
+
+
+.fontInter {
+    font-family: var(--default-font-family);
+}
+
+.fontAurore{
+    font-family: var(--exclusive-font-family);
+}
+
+.h1Text{
+    font-family: var(--default-font-family);
+    font-size: var(--small-h1-font-size);
+    font-weight: var(--small-h1-font-weight);
+    color: white;
+}
+
+
+.pText{
+    font-family: var(--default-font-family);
+    font-size: var(--small-p-font-size);
+    font-weight: var(--small-p-font-weight);
+    color: white;
+}
+
+.capsuleButtonText{
+    font-family: var(--default-font-family);
+    font-size: var(--capsule-button-text-size);
+    font-weight: var(--capsule-button-text-weight);
+    color: black;
+}
+
+.heroCard .LargeValue{
+    font-family: var(--default-font-family);
+    font-size: var(--smallCard-Large-Value-Font-Size);
+    font-weight: var(--smallCard-Large-Value-Font-Weight);
+    color: white;
+}
+
+.h2text{
+    font-family: var(--default-font-family);
+    font-size: var(--capsule-button-text-size);
+    font-weight: var(--capsule-button-text-weight);
+    color: black;
+}
+
+
+.partnerText{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-accent);
+    font-weight: 800;
+}
+
+.partnerText::before,
+.partnerText::after {
+    content: '';
+    width: 3.7rem;
+    height: 0.45rem;
+    background-color: var(--color-accent);
+}
+
+.wrapper{
+    max-width: 1600px;
+    width: 90%;
+    justify-self: center;
+    max-height: 100px;
+    height: 100px;
+    margin-inline: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0),
+        rgba(0,0,0,1) 20%,
+        rgba(0,0,0,1) 80%,
+        rgba(0,0,0,0) 
+    );
+}
+
+.partnerLogo{
+    width: 250px;
+    max-height: 100px;
+    position: absolute;
+    left: calc(200px * 8);
+    animation: slideLeft 10s linear infinite;
+    filter: brightness(0.5);
+}
+
+.partner1{
+    animation-delay: calc(20s / 5 * (5 - 1) * -1);
+}
+
+.partner2{
+    animation-delay: calc(20s / 5 * (5 - 2) * -1);
+}
+
+.partner3{
+    animation-delay: calc(20s / 5 * (5 - 3) * -1);
+}
+
+.partner4{
+    animation-delay: calc(20s / 5 * (5 - 4) * -1);
+}
+
+.partner5{
+    animation-delay: calc(20s / 5 * (5 - 5) * -1);
+}
+
+@keyframes slideLeft {
+    to {
+        left: -250px;
+    }
+}
+
+@media  (min-width: 340px) and (max-width: 830px) {
+    .wrapper{
+        max-width: auto;
+        width: 90%;
+        max-height: 100px;
+        height: 100px;
+        margin-inline: auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        mask-image: linear-gradient(
+            to right,
+            rgba(0,0,0,0),
+            rgba(0,0,0,1) 20%,
+            rgba(0,0,0,1) 80%,
+            rgba(0,0,0,0) 
+        );
+    }
+
+    .partnerLogo{
+        width: 150px;
+        max-height: 100px;
+        position: absolute;
+        left: calc(150px * 5);
+        animation: slideLeft 10s linear infinite;
+    }
+
+    @keyframes slideLeft {
+        to {
+            left: -150px;
+        }
+    }
+
+    .partner1{
+        animation-delay: calc(10s / 5 * (5 - 1) * -1);
+    }
+
+    .partner2{
+        animation-delay: calc(10s / 5 * (5 - 2) * -1);
+    }
+
+    .partner3{
+        animation-delay: calc(10s / 5 * (5 - 3) * -1);
+    }
+
+    .partner4{
+        animation-delay: calc(10s / 5 * (5 - 4) * -1);
+    }
+
+    .partner5{
+        animation-delay: calc(10s / 5 * (5 - 5) * -1);
+    }
+}
+
+@media (min-width: 550px) and (max-width: 767px) {
+    .aboutGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .col-span-550 {
+        grid-column: span 1 !important;
+    }
+
+    .hero-image-custom-bp{
+        width: 35.4rem;
+        height: 45.5rem;
+
+    }
+}
+
