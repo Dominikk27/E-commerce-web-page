@@ -19,8 +19,6 @@
         return $data['products'] ?? [];
     }
 
-    $products = readProducts();
 
-    print_r($products);
-
+    
 ?>

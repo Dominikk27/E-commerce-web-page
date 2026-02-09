@@ -1,3 +1,20 @@
+<?php
+    require __DIR__.'/php/productsData.php';
+    require __DIR__.'/php/pages.php';
+
+
+    $totalProducts = readProducts();
+    $itemsPerPage = 30;
+    $page = getCurrentPage();
+
+    $totalPages = getTotalPages(count($totalProducts),$itemsPerPage);
+
+    $products = paginate($totalProducts, $page, $itemsPerPage);
+
+    $paginationPages = getPaginationPages($page, $totalPages, 3);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -77,48 +94,51 @@
             </div>
 
             <!-- PRODUCTS -->
-            <div id="store" class="grid grid-cols-1 lg:grid-cols-5 px-[var(--horizontal-gap)] gap-4 sm:px-[16px] md:px-[4rem] lg:px-[8rem] xl:px-[16rem]  max-w-[1600px] mx-auto">
-                
-                <!-- PRODUCT CARD! -->
-                <div class="relative w-50 h-auto pb-3 rounded-xl flex flex-col product-card justify-center items-center">
-                    <div class="image-wrapper aspect-square owerflow-hidden flex justify-center items-center bg-white mx-3 my-3 border-solid border-2 product-image rounded-lg">
-                        <img src="./assets/products/pila.jpg" alt="" class=" w-full">
-                    </div>
-                    <div class="w-full">
-                        <div class="px-4">
-                            <h3 class="font-bold">Pila STIHL 20304 203</h3>
-                            <div class="description">
-                                <p>popis mozno</p>
+            <div id="store" class="flex flex-col justify-center w-full h-auto pb-5 px-[var(--horizontal-gap)] sm:px-[16px] md:px-[4rem] lg:px-[8rem] xl:px-[16rem]  max-w-[1600px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                    <!-- GENERATE CARDS -->
+                    <?php foreach($products as $product): ?>
+                        <!-- PRODUCT CARD! -->
+                        <div class="relative w-50 h-auto pb-3 rounded-xl flex flex-col product-card justify-center items-center">
+                            <div class="image-wrapper aspect-square overflow-hidden flex justify-center items-center bg-white mx-3 my-3 border-solid border-2 rounded-lg">
+                                <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class=" w-full h-auto object-contain">
+                            </div>
+                            <div class="w-full">
+                                <div class="px-4">
+                                    <h3 class="font-bold"><?= htmlspecialchars($product['name']) ?></h3>
+                                    <div class="description">
+                                        <p>popis mozno</p>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between w-full gap-2 items-center pt-5 px-2">
+                                    <p class="font-bold text-lg"><?= htmlspecialchars($product['price']) ?> €</p>
+                                    <button class="h-full w-full px-1 py-3 detail-btn flex-1 rounded-md text-sm">Detaily Produktu</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex justify-between w-full gap-2 items-center pt-5 px-2">
-                            <p class="font-bold text-lg">499.00€</p>
-                            <button class="h-full w-full px-1 py-3 detail-btn flex-1 rounded-md text-sm">Detaily Produktu</button>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
+
                 </div>
+                <div class="flex justify-center items-center pt-10 w-full">
+                    <?php foreach ($paginationPages as $p): ?>
+                        <?php if ($p === '...'): ?>
+                            <span class="px-3 py-2 text-gray-400">…</span>
 
-                <!-- PRODUCT CARD! -->
-                <div class="relative w-50 h-auto pb-3 rounded-xl flex flex-col product-card justify-center items-center">
-                    <div class="image-wrapper aspect-square owerflow-hidden flex justify-center items-center bg-white mx-3 my-3 border-solid border-2 product-image rounded-lg">
-                        <img src="./assets/products/pila.jpg" alt="" class=" w-full">
-                    </div>
-                    <div class="w-full">
-                        <div class="px-4">
-                            <h3 class="font-bold">Pila STIHL 20304 203</h3>
-                            <div class="description">
-                                <p>popis mozno</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between w-full gap-2 items-center pt-5 px-2">
-                            <p class="font-bold text-lg">499.00€</p>
-                            <button class="h-full w-full px-1 py-3 detail-btn flex-1 rounded-md text-sm">Detaily Produktu</button>
-                        </div>
-                    </div>
+                        <?php else: ?>
+                            <a
+                                href="?page=<?= $p ?>"
+                                class="px-3 py-2 rounded
+                                    <?= $p === $page
+                                        ? 'bg-[var(--color-accent)] text-white font-bold'
+                                        : 'bg-gray-200 hover:bg-gray-300'
+                                    ?>"
+                            >
+                                <?= $p ?>
+                            </a>
+                        <?php endif; ?>
+
+                    <?php endforeach; ?>
                 </div>
-
-
-
 
             </div>
             
