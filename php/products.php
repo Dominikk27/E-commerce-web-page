@@ -35,18 +35,12 @@
 
         [$price, $currency] = explode(' ', (string)$g->price);
 
-        $parametre_tab = (string) $g->parametre_tab;
-        $parametre_tab = strip_tags($parametre_tab);
-
-        $parameters_parts = explode('|', $parametre_tab);
         
-        $parameters = [];
-        for($i = 0; $i < count($parameters_parts)-2; $i+=3){
-            $name = trim($parameters_parts[$i]);
-            $value = trim($parameters_parts[$i+1]) .' '. $parameters_parts[$i+2];
-            $parameters[$name] = $value;
+        if (!empty($g->parametre_tab)) {
+            $parameters = parseParametreList((string)$g->parametrelist);
+        } else {
+            $parameters = parseParametreTab((string)$g->parametre_tab);
         }
-
 
         $products[] = [
             'id' => (string) $g->id,
@@ -74,4 +68,54 @@
     
     echo "OK – uložených produktov: " . count($products);
     print_r($products[0]);
+
+
+
+    function parseParametreTab(string $input): array
+    {
+        $text = html_entity_decode($input, ENT_QUOTES | ENT_HTML5);
+        $text = strip_tags($text);
+        $text = preg_replace('/\s+/', ' ', $text);
+
+        $parts = array_map('trim', explode('|', $text));
+        $parameters = [];
+
+        for ($i = 0; $i < count($parts) - 1; $i += 2) {
+            $key = $parts[$i] ?? null;
+            $value = $parts[$i + 1] ?? null;
+
+            if (!$key || !$value) continue;
+
+            $parameters[$key] = $value;
+        }
+
+        return $parameters;
+    }
+
+    function parseParametreList(string $html): array
+    {
+        $html = html_entity_decode($html, ENT_QUOTES | ENT_HTML5);
+
+        $dom = new DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML('<meta charset="utf-8">'.$html);
+        libxml_clear_errors();
+
+        $xpath = new DOMXPath($dom);
+        $items = $xpath->query('//li');
+
+        $parameters = [];
+
+        foreach ($items as $li) {
+            $text = trim(preg_replace('/\s+/', ' ', $li->textContent));
+
+            if (strpos($text, ':') !== false) {
+                [$key, $value] = explode(':', $text, 2);
+                $parameters[trim($key)] = trim($value);
+            }
+        }
+
+        return $parameters;
+    }
+
 ?>

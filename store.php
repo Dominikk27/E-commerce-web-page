@@ -39,7 +39,7 @@
                                 <i class="fa-solid fa-clock text-[var(--color-accent)] text-[1.7rem]"></i>
                             </div>
                             <div class="flex flex-col justify-center items-center">
-                                <h1 class="h1Text justify-center items-center [var(--default-font-family)] text-white px-[0.5rem]">Otváracie hodiny</h1>
+                                <h1 class="h1Text justify-center items-center  text-white px-[0.5rem]">Otváracie hodiny</h1>
                                 <h2 class="h2text text-white">Po-Pia: 8:00-16:30</h2>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                 <i class="fa-solid fa-phone text-[var(--color-accent)] text-[1.7rem]"></i>
                             </div>
                             <div class="flex flex-col justify-center items-center">
-                                <h1 class="h1Text justify-center items-center [var(--default-font-family)] text-white px-[0.5rem]">Telefón</h1>
+                                <h1 class="h1Text justify-center items-center  text-white px-[0.5rem]">Telefón</h1>
                                 <h2 class="h2text text-white">+421 918 523 756</h2>
                             </div>
                         </div>
@@ -59,43 +59,55 @@
                                 <i class="fa-solid fa-at text-[var(--color-accent)] text-[1.7rem]"></i>
                             </div>
                             <div class="flex flex-col justify-center items-center">
-                                <h1 class="h1Text justify-center items-center [var(--default-font-family)] text-white px-[0.5rem]">E-mail</h1>
+                                <h1 class="h1Text justify-center items-center  text-white px-[0.5rem]">E-mail</h1>
                                 <h2 class="h2text text-white">rmtechnikmyjava@gmail.com</h2>
                             </div>
                         </div>
                     </div>
                     <!-- NAVIGATION -->
                     <div class="flex flex-row gap-4 w-full bg-[rgba(var(--color-accent-rgb),0.4)] py-2 px-2 rounded-[0.5rem]">
-                        <a href="#" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        <a href="/#domov" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
                             Domov
                         </a>
-                        <a href="#" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
-                            Služby
-                        </a>
-                        <a href="#" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        <a href="/#o-nas" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
                             O nás
                         </a>
-                        <a href="#" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        <a href="/#partneri" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
                             Partneri
                         </a>
-                        <a href="#" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        <a href="https://profitrend.elnot.com/" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
                             Servis
                         </a>
-                        <a href="#" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
+                        <a href="/#kontakt" class="h2text text-[1.2rem] text-white relative after:block after:h-[2px] after:w-0 after:bg-[var(--color-accent)] after:transition-all after:duration-300 hover:after:w-full">
                             Kontakt
                         </a>
                         
                     </div>
                 </div>
-                <!-- MOBILE HAMBURGER BUTTON -->
-                <div class="absolute top-0 left-0 w-[var(--menu-btn-size)] h-[var(--menu-btn-size)] bg-[var(--color-accent)] rounded-[var(--menu-btn-radius)] flex justify-center items-center m-[var(--menu-btn-padding)] lg:hidden">
-                    <i class="fa-solid fa-bars fa-xl"></i>
-                </div>
             </div>
-
+            <!-- MOBILE HAMBURGER BUTTON -->
+            <div id="menuBtn"
+                class="fixed z-[9999] top-0 left-0 w-[var(--menu-btn-size)] h-[var(--menu-btn-size)]
+                        bg-[var(--color-accent)] rounded-[var(--menu-btn-radius)]
+                        flex justify-center items-center m-[var(--menu-btn-padding)] lg:hidden">
+                <i id="menuIcon" class="fa-solid fa-bars fa-xl"></i>
+            </div>
+            <!-- MOBILE MENU OVERLAY -->
+            <div id="mobileMenu"
+                class="fixed inset-0 bg-[rgba(var(--color-filled-card-rgba),0.85)]
+                        backdrop-blur-md flex flex-col justify-center items-center gap-8
+                        z-[99] opacity-0 pointer-events-none transition-all duration-300 lg:hidden">
+                
+                <a href="/" class="text-white text-2xl font-semibold">Domov</a>
+                <a href="#o-nas" class="text-white text-2xl font-semibold">O nás</a>
+                <a href="#partneri" class="text-white text-2xl font-semibold">Partneri</a>
+                <a href="https://profitrend.elnot.com/" class="text-white text-2xl font-semibold">Servis</a>
+                <a href="#kontakt" class="text-white text-2xl font-semibold">Kontakt</a>
+            </div>
+    
             <!-- PRODUCTS -->
             <div id="store" class="flex flex-col justify-center w-full h-auto pb-5 px-[var(--horizontal-gap)] sm:px-[16px] md:px-[4rem] lg:px-[8rem] xl:px-[16rem]  max-w-[1600px] mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
                     <!-- GENERATE CARDS -->
                     <?php foreach($products as $product): ?>
                         <!-- PRODUCT CARD! -->
@@ -106,20 +118,33 @@
                             <div class="w-full">
                                 <div class="px-4">
                                     <h3 class="font-bold"><?= htmlspecialchars($product['name']) ?></h3>
-                                    <div class="description">
-                                        <p>popis mozno</p>
+                                    <div class="details flex">
+                                        <ul>
+                                            <?php 
+                                                $i = 0;
+                                                foreach ($product['parameters'] as $name => $value): 
+                                                    if ($i++ >= 3) break;
+                                                ?>
+                                                    <li class="text-sm">
+                                                        <span class="font-medium text-sm"><?= htmlspecialchars($name) ?>:</span>
+                                                        <?= htmlspecialchars($value) ?>
+                                                    </li>
+                                            <?php endforeach; ?>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="flex justify-between w-full gap-2 items-center pt-5 px-2">
-                                    <p class="font-bold text-lg"><?= htmlspecialchars($product['price']) ?> €</p>
-                                    <button class="h-full w-full px-1 py-3 detail-btn flex-1 rounded-md text-sm">Detaily Produktu</button>
+                                    <div class="flex w-full flex-1 justify-center">
+                                        <p class="font-bold text-xl"><?= htmlspecialchars($product['price']) ?> €</p>
+                                    </div>
+                                    <button class="h-full px-3 py-2 detail-btn  rounded-full text-sm">Detaily Produktu</button>
                                 </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
 
                 </div>
-                <div class="flex justify-center items-center pt-10 w-full">
+                <div class="flex justify-center items-center pt-10 gap-1 w-full">
                     <?php foreach ($paginationPages as $p): ?>
                         <?php if ($p === '...'): ?>
                             <span class="px-3 py-2 text-gray-400">…</span>
@@ -127,7 +152,7 @@
                         <?php else: ?>
                             <a
                                 href="?page=<?= $p ?>"
-                                class="px-3 py-2 rounded
+                                class="px-2 py-1 rounded
                                     <?= $p === $page
                                         ? 'bg-[var(--color-accent)] text-white font-bold'
                                         : 'bg-gray-200 hover:bg-gray-300'
@@ -143,5 +168,6 @@
             </div>
             
         </div>
+        <script src="./js/mobileMenu.js"></script>
     </body>
 </html>
